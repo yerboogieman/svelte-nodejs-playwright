@@ -5,7 +5,7 @@ const pool = require('../db');
 // GET /friends - Get all friends
 router.get('/', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM friends');
+    const result = await pool.query('SELECT * FROM friends ORDER BY id');
     res.json(result.rows);
   } catch (err) {
     res.status(500).send(err.message);
