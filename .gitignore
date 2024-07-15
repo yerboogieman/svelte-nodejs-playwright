@@ -1,0 +1,10 @@
+.idea/
+workspace.xml
+shelf/
+httpRequests/
+dataSources/
+dataSources.local.xml
+
+.DS_Store
+
+node_modules/
