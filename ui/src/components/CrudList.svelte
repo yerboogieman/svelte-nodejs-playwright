@@ -5,6 +5,7 @@
     let newFriend = { first_name: '', last_name: '', age: '', city: '', state: '' }; // Define an object to hold the new friend's details
     let apiUrl = 'http://localhost:3000/friends'; // Define the base URL for the API
     let errorMessage = ''; // Define a variable to hold error messages
+    let editingFriend = null; // What friend to update
 
     // Fetch friends from API (GET request)
     async function fetchFriends() {
@@ -12,51 +13,39 @@
         friends = await response.json(); // Parse the response as JSON and assign it to the friends array
     }
 
-    // Add a new friend (POST request)
-    async function addFriend() {
+    // Add a new friend (POST request) or update (PUT request)
+    async function addOrUpdateFriend() {
         // Check if all fields of the new friend are filled
         if (newFriend.first_name.trim() && newFriend.last_name.trim() && newFriend.age && newFriend.city.trim() && newFriend.state.trim()) {
             errorMessage = ''; // Clear any previous error messages
-            const response = await fetch(apiUrl, {
-                method: 'POST', // Specify the request method as POST
+
+            // Determine the request method and URL based on whether editing a friend
+            const method = editingFriend ? 'PUT' : 'POST';
+            const url = editingFriend ? `${apiUrl}/${newFriend.id}` : apiUrl;
+
+            const response = await fetch(url, {
+                method: method, // Specify the request method as POST or PUT
                 headers: { 'Content-Type': 'application/json' }, // Set the request headers to indicate JSON content
                 body: JSON.stringify(newFriend) // Convert the new friend object to JSON and send it in the request body
             });
+
             if (response.ok) { // If the response is OK (status 200-299)
                 newFriend = { first_name: '', last_name: '', age: '', city: '', state: '' }; // Reset the new friend object to empty
+                editingFriend = null; // Clear the editing friend
                 await fetchFriends(); // Fetch the updated list of friends
             } else {
-                console.error('Failed to add friend'); // Log an error message if the request failed
+                console.error('Failed to save friend'); // Log an error message if the request failed
             }
         } else {
             errorMessage = 'All fields are required.'; // Set an error message if validation fails
         }
     }
 
-    // Update a friend (PUT request)
-    async function updateFriend(id) {
-        const friendToUpdate = friends.find(friend => friend.id === id);
-        const updatedFriend = { ...friendToUpdate };
-
-        updatedFriend.first_name = prompt('Update First Name', friendToUpdate.first_name) || friendToUpdate.first_name;
-        updatedFriend.last_name = prompt('Update Last Name', friendToUpdate.last_name) || friendToUpdate.last_name;
-        updatedFriend.age = prompt('Update Age', friendToUpdate.age) || friendToUpdate.age;
-        updatedFriend.city = prompt('Update City', friendToUpdate.city) || friendToUpdate.city;
-        updatedFriend.state = prompt('Update State', friendToUpdate.state) || friendToUpdate.state;
-
-        const response = await fetch(`${apiUrl}/${id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updatedFriend)
-        });
-
-        if (response.ok) {
-            await fetchFriends(); // Fetch and render the updated list to maintain order
-        } else {
-            console.error('Failed to update friend');
-        }
+    // Set up the form for editing a friend
+    function editFriend(friend) {
+        newFriend = { ...friend }; // Populate the form with the friend's details
+        editingFriend = friend; // Set the friend being edited
     }
-
 
     // Delete a friend (DELETE request)
     async function deleteFriend(id) {
@@ -83,7 +72,7 @@
     <input bind:value={newFriend.age} type="number" placeholder="Age" /> <!-- Input for the friend's age -->
     <input bind:value={newFriend.city} placeholder="City" /> <!-- Input for the friend's city -->
     <input bind:value={newFriend.state} placeholder="State" /> <!-- Input for the friend's state -->
-    <button on:click={addFriend}>Add</button> <!-- Button to add the new friend -->
+    <button on:click={addOrUpdateFriend}>{editingFriend ? 'Update' : 'Add'}</button> <!-- Button to add or update the new friend -->
 </div>
 
 <h2>Friends List</h2>
@@ -92,7 +81,7 @@
         <li class="friend-item">
             <span>{friend.first_name} {friend.last_name}, {friend.age}, {friend.city}, {friend.state}</span> <!-- Display the friend's details -->
             <div class="buttons">
-                <button on:click={() => updateFriend(friend.id)}>Update</button> <!-- Button to update the friend -->
+                <button on:click={() => editFriend(friend)}>Update</button> <!-- Button to update the friend -->
                 <button on:click={() => deleteFriend(friend.id)}>Delete</button> <!-- Button to delete the friend -->
             </div>
         </li>
