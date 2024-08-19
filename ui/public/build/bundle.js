@@ -556,11 +556,11 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[15] = list[i];
+    	child_ctx[16] = list[i];
     	return child_ctx;
     }
 
-    // (78:4) {#if errorMessage}
+    // (67:4) {#if errorMessage}
     function create_if_block(ctx) {
     	let p;
     	let t;
@@ -570,7 +570,7 @@ var app = (function () {
     			p = element("p");
     			t = text(/*errorMessage*/ ctx[2]);
     			set_style(p, "color", "red");
-    			add_location(p, file$1, 78, 8, 3789);
+    			add_location(p, file$1, 67, 8, 3264);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -588,30 +588,30 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(78:4) {#if errorMessage}",
+    		source: "(67:4) {#if errorMessage}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:4) {#each friends as friend (friend.id)}
+    // (80:4) {#each friends as friend (friend.id)}
     function create_each_block(key_1, ctx) {
     	let li;
     	let span;
-    	let t0_value = /*friend*/ ctx[15].first_name + "";
+    	let t0_value = /*friend*/ ctx[16].first_name + "";
     	let t0;
     	let t1;
-    	let t2_value = /*friend*/ ctx[15].last_name + "";
+    	let t2_value = /*friend*/ ctx[16].last_name + "";
     	let t2;
     	let t3;
-    	let t4_value = /*friend*/ ctx[15].age + "";
+    	let t4_value = /*friend*/ ctx[16].age + "";
     	let t4;
     	let t5;
-    	let t6_value = /*friend*/ ctx[15].city + "";
+    	let t6_value = /*friend*/ ctx[16].city + "";
     	let t6;
     	let t7;
-    	let t8_value = /*friend*/ ctx[15].state + "";
+    	let t8_value = /*friend*/ ctx[16].state + "";
     	let t8;
     	let t9;
     	let div;
@@ -623,11 +623,11 @@ var app = (function () {
     	let dispose;
 
     	function click_handler() {
-    		return /*click_handler*/ ctx[11](/*friend*/ ctx[15]);
+    		return /*click_handler*/ ctx[12](/*friend*/ ctx[16]);
     	}
 
     	function click_handler_1() {
-    		return /*click_handler_1*/ ctx[12](/*friend*/ ctx[15]);
+    		return /*click_handler_1*/ ctx[13](/*friend*/ ctx[16]);
     	}
 
     	const block = {
@@ -654,15 +654,15 @@ var app = (function () {
     			button1.textContent = "Delete";
     			t13 = space();
     			attr_dev(span, "class", "svelte-xogxz0");
-    			add_location(span, file$1, 92, 12, 4632);
+    			add_location(span, file$1, 81, 12, 4156);
     			attr_dev(button0, "class", "svelte-xogxz0");
-    			add_location(button0, file$1, 94, 16, 4817);
+    			add_location(button0, file$1, 83, 16, 4341);
     			attr_dev(button1, "class", "svelte-xogxz0");
-    			add_location(button1, file$1, 95, 16, 4935);
+    			add_location(button1, file$1, 84, 16, 4454);
     			attr_dev(div, "class", "buttons svelte-xogxz0");
-    			add_location(div, file$1, 93, 12, 4779);
+    			add_location(div, file$1, 82, 12, 4303);
     			attr_dev(li, "class", "friend-item svelte-xogxz0");
-    			add_location(li, file$1, 91, 8, 4595);
+    			add_location(li, file$1, 80, 8, 4119);
     			this.first = li;
     		},
     		m: function mount(target, anchor) {
@@ -695,11 +695,11 @@ var app = (function () {
     		},
     		p: function update(new_ctx, dirty) {
     			ctx = new_ctx;
-    			if (dirty & /*friends*/ 1 && t0_value !== (t0_value = /*friend*/ ctx[15].first_name + "")) set_data_dev(t0, t0_value);
-    			if (dirty & /*friends*/ 1 && t2_value !== (t2_value = /*friend*/ ctx[15].last_name + "")) set_data_dev(t2, t2_value);
-    			if (dirty & /*friends*/ 1 && t4_value !== (t4_value = /*friend*/ ctx[15].age + "")) set_data_dev(t4, t4_value);
-    			if (dirty & /*friends*/ 1 && t6_value !== (t6_value = /*friend*/ ctx[15].city + "")) set_data_dev(t6, t6_value);
-    			if (dirty & /*friends*/ 1 && t8_value !== (t8_value = /*friend*/ ctx[15].state + "")) set_data_dev(t8, t8_value);
+    			if (dirty & /*friends*/ 1 && t0_value !== (t0_value = /*friend*/ ctx[16].first_name + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*friends*/ 1 && t2_value !== (t2_value = /*friend*/ ctx[16].last_name + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*friends*/ 1 && t4_value !== (t4_value = /*friend*/ ctx[16].age + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*friends*/ 1 && t6_value !== (t6_value = /*friend*/ ctx[16].city + "")) set_data_dev(t6, t6_value);
+    			if (dirty & /*friends*/ 1 && t8_value !== (t8_value = /*friend*/ ctx[16].state + "")) set_data_dev(t8, t8_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(li);
@@ -712,7 +712,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(91:4) {#each friends as friend (friend.id)}",
+    		source: "(80:4) {#each friends as friend (friend.id)}",
     		ctx
     	});
 
@@ -735,6 +735,8 @@ var app = (function () {
     	let input4;
     	let t7;
     	let button;
+    	let t8_value = (/*editingFriend*/ ctx[3] ? 'Update' : 'Add') + "";
+    	let t8;
     	let t9;
     	let h21;
     	let t11;
@@ -746,7 +748,7 @@ var app = (function () {
     	let if_block = /*errorMessage*/ ctx[2] && create_if_block(ctx);
     	let each_value = /*friends*/ ctx[0];
     	validate_each_argument(each_value);
-    	const get_key = ctx => /*friend*/ ctx[15].id;
+    	const get_key = ctx => /*friend*/ ctx[16].id;
     	validate_each_keys(ctx, each_value, get_each_context, get_key);
 
     	for (let i = 0; i < each_value.length; i += 1) {
@@ -774,7 +776,7 @@ var app = (function () {
     			input4 = element("input");
     			t7 = space();
     			button = element("button");
-    			button.textContent = "Add";
+    			t8 = text(t8_value);
     			t9 = space();
     			h21 = element("h2");
     			h21.textContent = "Friends List";
@@ -785,30 +787,30 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(h20, file$1, 76, 4, 3732);
+    			add_location(h20, file$1, 65, 4, 3207);
     			attr_dev(input0, "placeholder", "First Name");
     			attr_dev(input0, "class", "svelte-xogxz0");
-    			add_location(input0, file$1, 80, 4, 3893);
+    			add_location(input0, file$1, 69, 4, 3368);
     			attr_dev(input1, "placeholder", "Last Name");
     			attr_dev(input1, "class", "svelte-xogxz0");
-    			add_location(input1, file$1, 81, 4, 4009);
+    			add_location(input1, file$1, 70, 4, 3484);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "placeholder", "Age");
     			attr_dev(input2, "class", "svelte-xogxz0");
-    			add_location(input2, file$1, 82, 4, 4122);
+    			add_location(input2, file$1, 71, 4, 3597);
     			attr_dev(input3, "placeholder", "City");
     			attr_dev(input3, "class", "svelte-xogxz0");
-    			add_location(input3, file$1, 83, 4, 4231);
+    			add_location(input3, file$1, 72, 4, 3706);
     			attr_dev(input4, "placeholder", "State");
     			attr_dev(input4, "class", "svelte-xogxz0");
-    			add_location(input4, file$1, 84, 4, 4329);
+    			add_location(input4, file$1, 73, 4, 3804);
     			attr_dev(button, "class", "svelte-xogxz0");
-    			add_location(button, file$1, 85, 4, 4430);
+    			add_location(button, file$1, 74, 4, 3905);
     			attr_dev(div, "class", "svelte-xogxz0");
-    			add_location(div, file$1, 75, 0, 3722);
-    			add_location(h21, file$1, 88, 0, 4518);
+    			add_location(div, file$1, 64, 0, 3197);
+    			add_location(h21, file$1, 77, 0, 4042);
     			attr_dev(ul, "class", "svelte-xogxz0");
-    			add_location(ul, file$1, 89, 0, 4540);
+    			add_location(ul, file$1, 78, 0, 4064);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -835,6 +837,7 @@ var app = (function () {
     			set_input_value(input4, /*newFriend*/ ctx[1].state);
     			append_dev(div, t7);
     			append_dev(div, button);
+    			append_dev(button, t8);
     			insert_dev(target, t9, anchor);
     			insert_dev(target, h21, anchor);
     			insert_dev(target, t11, anchor);
@@ -848,12 +851,12 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[6]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[7]),
-    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[8]),
-    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[9]),
-    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[10]),
-    					listen_dev(button, "click", /*addFriend*/ ctx[3], false, false, false, false)
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[7]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[8]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[9]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[10]),
+    					listen_dev(input4, "input", /*input4_input_handler*/ ctx[11]),
+    					listen_dev(button, "click", /*addOrUpdateFriend*/ ctx[4], false, false, false, false)
     				];
 
     				mounted = true;
@@ -893,7 +896,9 @@ var app = (function () {
     				set_input_value(input4, /*newFriend*/ ctx[1].state);
     			}
 
-    			if (dirty & /*deleteFriend, friends, updateFriend*/ 49) {
+    			if (dirty & /*editingFriend*/ 8 && t8_value !== (t8_value = (/*editingFriend*/ ctx[3] ? 'Update' : 'Add') + "")) set_data_dev(t8, t8_value);
+
+    			if (dirty & /*deleteFriend, friends, editFriend*/ 97) {
     				each_value = /*friends*/ ctx[0];
     				validate_each_argument(each_value);
     				validate_each_keys(ctx, each_value, get_each_context, get_key);
@@ -945,6 +950,7 @@ var app = (function () {
 
     	let apiUrl = 'http://localhost:3000/friends'; // Define the base URL for the API
     	let errorMessage = ''; // Define a variable to hold error messages
+    	let editingFriend = null; // What friend to update
 
     	// Fetch friends from API (GET request)
     	async function fetchFriends() {
@@ -952,14 +958,19 @@ var app = (function () {
     		$$invalidate(0, friends = await response.json()); // Parse the response as JSON and assign it to the friends array
     	}
 
-    	// Add a new friend (POST request)
-    	async function addFriend() {
+    	// Add a new friend (POST request) or update (PUT request)
+    	async function addOrUpdateFriend() {
     		// Check if all fields of the new friend are filled
     		if (newFriend.first_name.trim() && newFriend.last_name.trim() && newFriend.age && newFriend.city.trim() && newFriend.state.trim()) {
     			$$invalidate(2, errorMessage = ''); // Clear any previous error messages
 
-    			const response = await fetch(apiUrl, {
-    				method: 'POST', // Specify the request method as POST
+    			// Determine the request method and URL based on whether editing a friend
+    			const method = editingFriend ? 'PUT' : 'POST';
+
+    			const url = editingFriend ? `${apiUrl}/${newFriend.id}` : apiUrl;
+
+    			const response = await fetch(url, {
+    				method, // Specify the request method as POST or PUT
     				headers: { 'Content-Type': 'application/json' }, // Set the request headers to indicate JSON content
     				body: JSON.stringify(newFriend), // Convert the new friend object to JSON and send it in the request body
     				
@@ -975,36 +986,20 @@ var app = (function () {
     					state: ''
     				}); // Reset the new friend object to empty
 
+    				$$invalidate(3, editingFriend = null); // Clear the editing friend
     				await fetchFriends(); // Fetch the updated list of friends
     			} else {
-    				console.error('Failed to add friend'); // Log an error message if the request failed
+    				console.error('Failed to save friend'); // Log an error message if the request failed
     			}
     		} else {
     			$$invalidate(2, errorMessage = 'All fields are required.'); // Set an error message if validation fails
     		}
     	}
 
-    	// Update a friend (PUT request)
-    	async function updateFriend(id) {
-    		const friendToUpdate = friends.find(friend => friend.id === id);
-    		const updatedFriend = { ...friendToUpdate };
-    		updatedFriend.first_name = prompt('Update First Name', friendToUpdate.first_name) || friendToUpdate.first_name;
-    		updatedFriend.last_name = prompt('Update Last Name', friendToUpdate.last_name) || friendToUpdate.last_name;
-    		updatedFriend.age = prompt('Update Age', friendToUpdate.age) || friendToUpdate.age;
-    		updatedFriend.city = prompt('Update City', friendToUpdate.city) || friendToUpdate.city;
-    		updatedFriend.state = prompt('Update State', friendToUpdate.state) || friendToUpdate.state;
-
-    		const response = await fetch(`${apiUrl}/${id}`, {
-    			method: 'PUT',
-    			headers: { 'Content-Type': 'application/json' },
-    			body: JSON.stringify(updatedFriend)
-    		});
-
-    		if (response.ok) {
-    			await fetchFriends(); // Fetch and render the updated list to maintain order
-    		} else {
-    			console.error('Failed to update friend');
-    		}
+    	// Set up the form for editing a friend
+    	function editFriend(friend) {
+    		$$invalidate(1, newFriend = { ...friend }); // Populate the form with the friend's details
+    		$$invalidate(3, editingFriend = friend); // Set the friend being edited
     	}
 
     	// Delete a friend (DELETE request)
@@ -1054,7 +1049,7 @@ var app = (function () {
     		$$invalidate(1, newFriend);
     	}
 
-    	const click_handler = friend => updateFriend(friend.id);
+    	const click_handler = friend => editFriend(friend);
     	const click_handler_1 = friend => deleteFriend(friend.id);
 
     	$$self.$capture_state = () => ({
@@ -1063,9 +1058,10 @@ var app = (function () {
     		newFriend,
     		apiUrl,
     		errorMessage,
+    		editingFriend,
     		fetchFriends,
-    		addFriend,
-    		updateFriend,
+    		addOrUpdateFriend,
+    		editFriend,
     		deleteFriend
     	});
 
@@ -1074,6 +1070,7 @@ var app = (function () {
     		if ('newFriend' in $$props) $$invalidate(1, newFriend = $$props.newFriend);
     		if ('apiUrl' in $$props) apiUrl = $$props.apiUrl;
     		if ('errorMessage' in $$props) $$invalidate(2, errorMessage = $$props.errorMessage);
+    		if ('editingFriend' in $$props) $$invalidate(3, editingFriend = $$props.editingFriend);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -1084,8 +1081,9 @@ var app = (function () {
     		friends,
     		newFriend,
     		errorMessage,
-    		addFriend,
-    		updateFriend,
+    		editingFriend,
+    		addOrUpdateFriend,
+    		editFriend,
     		deleteFriend,
     		input0_input_handler,
     		input1_input_handler,
